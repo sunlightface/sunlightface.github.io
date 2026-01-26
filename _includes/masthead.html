@@ -4,13 +4,18 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
+        
+        {% if site.search == true %}
+        <button class="search__toggle" type="button" style="background: none; border: none; margin-right: 10px; cursor: pointer;">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+          <i class="fas fa-search" style="font-size: 24px; color: inherit;"></i>
+        </button>
+        {% endif %}
+        
         {% unless logo_path == empty %}
           <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
         {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.masthead_title | default: site.title | escape_once | strip }}
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
-        </a>
+        
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
@@ -21,13 +26,14 @@
               >{{ link.title }}</a>
             </li>
           {%- endfor -%}
+          
+          <li class="masthead__menu-item">
+            <a href="https://github.com/sunlightface" target="_blank" title="GitHub">
+              <i class="fab fa-fw fa-github" style="font-size: 50px;"></i>
+            </a>
+          </li>
         </ul>
-        {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
-        </button>
-        {% endif %}
+        
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>

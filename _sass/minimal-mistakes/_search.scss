@@ -8,19 +8,22 @@
   }
 }
 
+/* 기존의 .search__toggle 블록을 이렇게 수정하세요 */
 .search__toggle {
   margin-inline: 1rem;
   height: $nav-toggle-height;
   border: 0;
   outline: none;
-  color: $primary-color;
+  color: $primary-color !important; /* 기본 색상 강제 고정 */
   background-color: transparent;
   cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: none !important; /* 애니메이션 삭제 */
+  transition: none !important;
 
+  /* 호버 시 색 변화 차단 */
   &:hover {
-    color: mix(#000, $primary-color, 25%);
+    color: $primary-color !important; /* 원래 색 그대로 유지 */
+    opacity: 1 !important;
   }
 }
 

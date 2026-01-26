@@ -1,7 +1,9 @@
 {% unless site.atom_feed.hide %}
   {% assign show_atom = true %}
 {% endunless %}
+
 {% if site.footer.links or show_atom %}
+{% comment %}
 <div class="page__footer-follow">
   <ul class="social-icons">
     {% if site.data.ui-text[site.locale].follow_label %}
@@ -21,6 +23,11 @@
     {% endunless %}
   </ul>
 </div>
+{% endcomment %}
 {% endif %}
+
+<div class="page__footer-notice">
+   패치 파일의 유료 판매 및 상업적 활용을 엄격히 금지합니다. <br>본 자료는 무료 배포를 원칙으로 하며, 이후 발생하는 모든 제반 사항은 제작자와 무관함을 밝힙니다.
+</div>
 
 <div class="page__footer-copyright">&copy; {% assign site_time = site.time | date: '%Y' %}{% if site.footer.since and site_time != site.footer.since %}{{ site.footer.since }} - {% endif %}{{ site_time }} <a href="{{ site.copyright_url | default: site.url }}">{{ site.copyright | default: site.title | escape_once | strip }}</a>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>

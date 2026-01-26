@@ -1,4 +1,33 @@
 ---
-layout: home
+layout: archive
 author_profile: true
 ---
+
+<style>
+  /* 'Recent Posts' 같은 큰 제목 숨기기 */
+  .page__title { display: none !important; }
+  .archive__subtitle { display: none !important; }
+
+  /* 링크 스타일: 기본 회색 -> 마우스 올리면 검정 */
+  .archive__item-title a {
+    color: #888888 !important;
+    text-decoration: none;
+  }
+  
+  .archive__item-title a:hover, 
+  .archive__item-title a:active {
+    color: #000000 !important;
+  }
+</style>
+
+{% for post in paginator.posts %}
+  <article class="archive__item">
+    <h2 class="archive__item-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h2>
+  </article>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+  {% include paginator.html %}
+{% endif %}
