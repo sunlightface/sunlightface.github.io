@@ -20,8 +20,8 @@ rtl                      : # true, false (default) # turns direction of the page
 title                    : "sunlightface"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "일광면"
-description              : "저는 한글화하는 사람입니다"
+name                     : "sunlightface"
+description              : "Retro Reverse Engineer"
 url                      : "https://sunlightface.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
