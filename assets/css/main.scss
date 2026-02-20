@@ -7,6 +7,15 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+//@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');//font
+
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
 
 /* --- 사이드바 최종 정석 커스텀 --- */
 
@@ -74,7 +83,7 @@ search: false
 
 /* 포스팅 본문 전체 */
 .page__content {
-  font-size: 15px;      // 본문 글자 크기 (기본보다 살짝 큰 게 보기 편함)
+  font-size: 16px;      // 본문 글자 크기 (기본보다 살짝 큰 게 보기 편함)
   color: #000000;          // 본문 글자 색상 (완전 검정보다 진한 회색이 눈이 덜 아픔)
   line-height: 1.8;        // 줄 간격 (넉넉하게 주면 가독성이 좋아짐)
 
@@ -92,7 +101,7 @@ search: false
 
 .page__footer-notice {
   margin-bottom: 0.5em;    // 카피라이트 문구와의 간격
-  font-size: 0.8em;       // 약간 작게 (또는 본문 크기에 맞게 조절)
+  font-size: 18px;       // 약간 작게 (또는 본문 크기에 맞게 조절)
   color: #000;          // 강조를 위해 빨간색 (원치 않으시면 #000으로 변경)
   font-weight: bold;       // 눈에 띄게 볼드 처리
   line-height: 2;
