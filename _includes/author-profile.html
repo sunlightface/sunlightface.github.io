@@ -14,28 +14,8 @@
     <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
   </h3>
   {% if author.bio %}
-    <div class="author__bio p-note" itemprop="description">
-      {{ author.bio | markdownify }}
-    </div>
-  {% endif %}
-  
-<div class="custom-sidebar-navigation">
-    <ul>
-      <li>
-        <a href="{{ '/nds/' | relative_url }}">
-          NDS
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/psx1/' | relative_url }}">
-          PSX1
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/etc/' | relative_url }}">
-          ETC
-        </a>
-      </li>
-    </ul>
+      <div class="author__bio p-note" itemprop="description">
+        {{ author.bio | markdownify }}
+      </div>
+    {% endif %}
   </div>
-</div>

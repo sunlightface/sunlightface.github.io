@@ -1,35 +1,43 @@
-{% capture logo_path %}{{ site.logo }}{% endcapture %}
+<div class="masthead" style="background-color: #ffffff; border-top: 1px solid #e1e4e8; border-left: 1px solid #e1e4e8; border-right: 1px solid #e1e4e8; border-top-left-radius: 6px; border-top-right-radius: 6px; margin-top: 2em !important; box-shadow: 0 -1px 3px rgba(0,0,0,0.05);">
+  <!-- 1단: 최상위 탑바 (로고 + 메뉴) -->
+  <div class="masthead__inner-wrap" style="border-bottom: 1px solid #f2f3f3; padding: 20px 2em; max-width: 100% !important;">
+    <div style="display: flex; align-items: center; justify-content: flex-start;">
+      <!-- 로고 (bio-photo.jpg) -->
+      <a href="{{ '/' | relative_url }}" style="margin-right: 40px; flex-shrink: 0;">
+        <img src="{{ '/assets/images/bio-photo.jpg' | relative_url }}" alt="Logo" style="max-height: 80px; width: auto; display: block; border: 2px solid #000; padding: 2px">
+      </a>
+      
+      <!-- NDS, PSX1, ETC 메뉴 (사이드바 스타일 적용) -->
+      <ul style="list-style: none; display: flex; margin: 0; padding: 0; align-items: center; flex-wrap: wrap;">
+        {%- for link in site.data.navigation.main -%}
+          <li style="margin-right: 40px; margin-top: -30px;">
+            <a href="{{ link.url | relative_url }}" 
+               style="font-weight: 900; font-size: 20px; text-transform: uppercase; color: #000 !important; text-decoration: none; line-height: 1; letter-spacing: 1px; display: inline-block;">
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        
+  <!-- 2단: 현재 검색 탑바 (구분선 추가) -->
+  <div class="masthead__inner-wrap" style="padding: 5px 2em !important; border-bottom: 1px solid #f2f3f3; max-width: 100% !important;">
+
+    <div class="masthead__menu" style="margin: 0 !important; padding: 0 !important;">
+      <nav id="site-nav" class="greedy-nav" style="display: flex; align-items: center; margin: 0 !important; padding: 0 !important;">
+
         {% if site.search == true %}
-        <button class="search__toggle" type="button" style="background: none; border: none; margin-right: 10px; cursor: pointer;">
+        <button class="search__toggle" type="button" style="background: none; border: none; margin: 0 10px 0 0 !important; padding: 0 !important; cursor: pointer; display: flex; align-items: center;">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search" style="font-size: 24px; color: inherit;"></i>
+          <i class="fas fa-search" style="font-size: 24px; color: inherit; "></i>
         </button>
         {% endif %}
         
-        {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
-        {% endunless %}
-        
-        <ul class="visible-links">
-          {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
-              <a
-                href="{{ link.url | relative_url }}"
-                {% if link.description %} title="{{ link.description }}"{% endif %}
-                {% if link.target %} target="{{ link.target }}"{% endif %}
-              >{{ link.title }}</a>
-            </li>
-          {%- endfor -%}
-          
+        <ul class="visible-links" style="margin: 0 !important; padding: 0 !important;">
           <li class="masthead__menu-item">
             <a href="https://github.com/sunlightface" target="_blank" title="GitHub">
-              <i class="fab fa-fw fa-github" style="font-size: 50px;"></i>
+              <i class="fab fa-fw fa-github" style="font-size: 40px;"></i>
             </a>
           </li>
         </ul>
