@@ -173,6 +173,12 @@ hr {
 
 /* lists */
 
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-left: 0;
+}
+
 ul li,
 ol li {
   margin-bottom: 0.5em;
@@ -181,7 +187,18 @@ ol li {
 li ul,
 li ol {
   margin-top: 0.5em;
-  margin-left: -25px;
+}
+
+/* 숫자 리스트(ol) 하위: 부모의 '1. ' 너비에 맞춰 조정 */
+ol li ul,
+ol li ol {
+  margin-left: -10px; 
+}
+
+/* 불렛 리스트(ul) 하위: 부모의 '- ' 너비에 맞춰 조정 */
+ul li ul,
+ul li ol {
+  margin-left: -2px; 
 }
 
 /*
