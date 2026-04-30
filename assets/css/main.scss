@@ -102,6 +102,24 @@ search: false
     color: #007bff;
     text-decoration: underline;
   }
+
+  /* 모든 코드 블록(```) 스타일 통일 */
+  div.highlighter-rouge,
+  figure.highlight {
+    margin-bottom: 1.5em;
+    font-size: 14px; /* 코드 폰트 크기 통합 */
+
+    /* 내부 요소(줄 번호 테이블 등)까지 폰트 크기 강제 상속 */
+    pre, code, table, td {
+      font-size: inherit !important;
+    }
+  }
+
+  /* 문단(p) 바로 뒤에 오는 코드 박스만 상단 여백 제거 (딱 붙이기) */
+  p + div.highlighter-rouge,
+  p + figure.highlight {
+    margin-top: -1.2rem;
+  }
 }
 
 .page__footer-notice {
@@ -160,7 +178,7 @@ body {
 /* 페이지네이션 (이전/숫자/다음) 블랙 테마 커스텀 */
 .pagination {
   margin-top: 2em;      // 글 목록과의 적절한 간격
-  margin-bottom: -3em !important; // 마이너스 마진으로 바닥 여백 파고들기
+  margin-bottom: -1em !important; // 마이너스 마진으로 바닥 여백 파고들기
   padding-bottom: 0; 
   
   ul {
