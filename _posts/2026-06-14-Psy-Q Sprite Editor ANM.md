@@ -514,12 +514,38 @@ GPU packet의 XY word는 Y를 상위 16비트, X를 하위 16비트에 넣는다
 
 XY = (finalY << 16) \| finalX -> XY = (0xFFEC << 16) \| 0xFFBC -> XY = 0xFFECFFBC
 
-## 결론
+## 수정 과정
 
-여기서 한글화 작업에 필요한 주요 필드는 Sequence의 X, Y와 Sprite Entry의 u, v, ofsX, ofsY, W, H 정도다.
+일단 기존 이미지를 한글로 이쁘게 수정한 후 글자 수에 맞게 사이즈를 변경함.
 
-화면에 표시될 위치는 기본적으로 X + ofsX, Y + ofsY로 계산된다. 음수 좌표를 적용해야 할 경우에는 2바이트 signed 값인 X, Y를 수정하는 것이 적합하다.
+![0]({{ '/assets/images/Psy-Q Sprite Editor ANM Format/0x0022FCE8_OG.bin.png' | relative_url }})
+![1]({{ '/assets/images/Psy-Q Sprite Editor ANM Format/0x0022FCE8_KR.bin.png' | relative_url }})
+<br>
+![2]({{ '/assets/images/Psy-Q Sprite Editor ANM Format/0x002316B4_OG.bin.png' | relative_url }})
+![3]({{ '/assets/images/Psy-Q Sprite Editor ANM Format/0x002316B4_KR.bin.png' | relative_url }})
 
-TIM 이미지에서 가져올 위치와 크기를 조정하려면 u, v, W, H를 수정한다. 이미지 자체를 원하는 크기로 수정한 뒤, ANM의 u, v, W, H 값을 그에 맞게 맞춰주면 된다.
+**인 게임에서 비교**
 
+<div style="display:flex; gap:1rem; align-items:flex-start;">
 
+<figure style="width:48%; margin:0;">
+  <img src="{{ '/assets/images/Psy-Q Sprite Editor ANM Format/no_fix.gif' | relative_url }}" style="width:100%; height:auto; display:block;" alt="no fix">
+  <figcaption style="font:inherit; color:inherit;">이미지만 수정하고 좌표랑 사이즈는 전혀 변경되지 않았을 경우</figcaption>
+</figure>
+
+<figure style="width:48%; margin:0;">
+  <img src="{{ '/assets/images/Psy-Q Sprite Editor ANM Format/fix.gif' | relative_url }}" style="width:100%; height:auto; display:block;" alt="fix">
+  <figcaption style="font:inherit; color:inherit;">좌푯값들을 수정하여 이미지를 가운데 정렬하고 사이즈 값을 변경 </figcaption>
+</figure>
+
+</div>
+
+---
+
+정리하자면 한글화 작업에서 실제로 중요하게 봐야 할 필드는 크게 두 가지로 나눌 수 있다.  화면상에서 이미지가 표시될 위치를 결정하는 값이고, 다른 하나는 TIM 이미지 안에서 어떤 부분을 잘라서 사용할지를 결정하는 값이다.
+
+먼저 화면에 표시되는 위치와 관련해서는 Sequence 쪽의 X, Y 값과 Sprite Entry 쪽의 ofsX, ofsY 값을 확인해야 한다. 기본적으로 게임 화면에 실제로 출력되는 좌표는 X + ofsX, Y + ofsY 형태로 계산되니깐 여기를 수정하면 되지만 단 음수 좌표가 필요하거나,  출력될 기준점 자체를 크게 변경해야 하는 경우라면 Sequence의 X, Y 값을 수정해야 한다.  X, Y는 2바이트 signed 값으로 보이기 때문에 음수 좌표를 표현할 수 있기 때문이다.
+
+TIM 이미지에서 어떤 부분을 가져올지 조정하려면 Sprite Entry의 u, v, W, H 값을 간단히 수정하면 된다.  TIM 이미지 안에 원하는 그래픽을 배치한 뒤, u, v, W, H 값을 맞춰주면 게임에서 해당 영역만 잘라서 사용할 수 있다.
+
+결국 한글화 작업을 할 때 반드시 원본과 완전히 동일한 포맷이나 배치를 유지해야 하는 것은 아니다. 이러한 구조만 이해하고 있으면 원하는 이미지를 적절히 가공한 뒤 쉽게 사용이 가능하다는 것
