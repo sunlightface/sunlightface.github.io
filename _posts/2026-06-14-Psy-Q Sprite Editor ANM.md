@@ -95,7 +95,7 @@ ANM은 PlayStation Psy-Q Sprite Editor에서 사용하는 스프라이트 애니
 **Header**:  21 03 00 00 01 00 01 00
 
 | Field       |      값 |
-| ----------- | -----: |
+| ----------- | ----- |
 | ID        | 0x21 |
 | VERSION   | 0x03 |
 | FLAG      |    0 |
