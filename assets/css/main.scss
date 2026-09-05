@@ -108,6 +108,7 @@ search: false
   figure.highlight {
     margin-bottom: 1.5em;
     font-size: 14px; /* 코드 폰트 크기 통합 */
+    line-height: 1.4; /* 코드 줄 간격 */
 
     /* 내부 요소(줄 번호 테이블 등)까지 폰트 크기 강제 상속 */
     pre, code, table, td {
@@ -119,6 +120,34 @@ search: false
   p + div.highlighter-rouge,
   p + figure.highlight {
     margin-top: -1.2rem;
+  }
+
+  /* 볼드체만 있는 문단 뒤에는 일반 줄 간격 적용 */
+  p.paragraph--bold-only {
+    margin-bottom: 0;
+
+    // 목록의 위 여백과 코드 박스의 음수 여백도 해당 문단 뒤에서만 보정
+    & + ul,
+    & + ol,
+    & + div.highlighter-rouge,
+    & + figure.highlight {
+      margin-top: 0;
+    }
+  }
+}
+
+/* armips / nessnes: 기존 코드 테마에 지시어·레지스터·라벨 색상 추가 */
+.highlight .armips-highlight {
+  .cp, .si {
+    color: $base0c;
+  }
+
+  .nb {
+    color: $base0a;
+  }
+
+  .nl {
+    color: $base0d;
   }
 }
 

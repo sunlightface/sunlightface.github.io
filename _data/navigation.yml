@@ -1,5 +1,9 @@
 # main links
 main:
+  - title: "HOME"
+    url: /
+  - title: "NES"
+    url: /nes/
   - title: "NDS"
     url: /nds/
   - title: "PSX1"

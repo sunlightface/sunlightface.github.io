@@ -1,16 +1,11 @@
 <div class="masthead" style="background-color: #ffffff; border-top: 1px solid #e1e4e8; border-left: 1px solid #e1e4e8; border-right: 1px solid #e1e4e8; border-top-left-radius: 6px; border-top-right-radius: 6px; margin-top: 2rem !important; box-shadow: 0 -1px 3px rgba(0,0,0,0.05);">
-  <!-- 1단: 최상위 탑바 (로고 + 메뉴) -->
+  <!-- 1단: 최상위 탑바 (메뉴) -->
   <div class="masthead__inner-wrap" style="border-bottom: 1px solid #f2f3f3; padding: 2.5rem 2rem 1rem 2rem; max-width: 100% !important;">
     <div style="display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 2.5rem;">
-      <!-- 로고 (bio-photo.jpg) -->
-      <a href="{{ '/' | relative_url }}" style="flex-shrink: 0;">
-        <img src="{{ '/assets/images/bio-photo.jpg' | relative_url }}" alt="Logo" style="max-height: 5rem; width: auto; display: block; border: 2px solid #000; padding: 2px">
-      </a>
-      
-      <!-- NDS, PSX1, ETC 메뉴 -->
+      <!-- HOME, NES, NDS, PSX1, ETC 메뉴 -->
       <ul style="list-style: none; display: flex; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; gap: 2.5rem;">
         {%- for link in site.data.navigation.main -%}
-          <li style="margin-top: -3rem;"> <!-- -30px을 상대값으로 적용 -->
+          <li style="margin: 0;">
             <a href="{{ link.url | relative_url }}" 
                style="font-weight: 900; font-size: 1.25rem; text-transform: uppercase; color: #000 !important; text-decoration: none; line-height: 1; letter-spacing: 1px; display: inline-block;">
               {{ link.title }}
