@@ -5,30 +5,19 @@ categories:
   - nds
 classes: wide  
 ---
-
 <style>
 .page__content table {
   display: table !important;
-  table-layout: fixed !important;
-  width: 80% !important;
+  width: 100% !important;
+  table-layout: auto !important;
 }
-.page__content td,
-.page__content th {
-  overflow-wrap: break-word !important;
-  word-break: break-word !important;
+
+.page__content th,
+.page__content td {
+  white-space: nowrap !important;
 }
-/* 5컬럼 테이블: 오프셋 10% / 크기 8% / 필드 15% / 값 17% / 설명 50% */
-.page__content th:nth-child(1),
-.page__content td:nth-child(1) { width: 10% !important; }
-.page__content th:nth-child(2),
-.page__content td:nth-child(2) { width: 8% !important; }
-.page__content th:nth-child(3),
-.page__content td:nth-child(3) { width: 15% !important; }
-.page__content th:nth-child(4),
-.page__content td:nth-child(4) { width: 37% !important; }
-.page__content th:nth-child(5),
-.page__content td:nth-child(5) { width: 30% !important; }
 </style>
+
 1. **NCLR (Nitro CoLor Resource)**
 
    - **파일 헤더 (공통, 16바이트)**

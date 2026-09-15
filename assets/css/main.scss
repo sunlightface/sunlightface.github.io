@@ -103,6 +103,13 @@ search: false
     text-decoration: underline;
   }
 
+  /* 표의 글꼴·크기·줄 간격을 주변 본문과 통일 */
+  table {
+    font-family: inherit;
+    font-size: 1em;
+    line-height: inherit;
+  }
+
   /* 모든 코드 블록(```) 스타일 통일 */
   div.highlighter-rouge,
   figure.highlight {
